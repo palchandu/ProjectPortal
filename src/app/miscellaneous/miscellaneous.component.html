@@ -1,0 +1,27 @@
+<div id="page-wrapper">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="tab">
+                        <a routerLinkActive="active" routerLink='state' class="tablinks"  id="defaultOpen">State</a>
+                        <a routerLink='university' class="tablinks">University</a>
+                        <a routerLink='college' class="tablinks">College</a>
+                      </div>
+                      
+                      <div id="London" class="tabcontent">
+                          <router-outlet></router-outlet>
+                      </div>
+                      
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  
+

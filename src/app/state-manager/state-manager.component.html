@@ -1,0 +1,33 @@
+<p *ngIf="msg" class="alert alert-success">{{ msg }}</p>
+<form [formGroup]="addStateForm" (ngSubmit)="addState()">
+    <div class="form-group">
+        <label for="inputEmail">State</label>
+        <div *ngIf="addStateForm.controls['user_state'].invalid && (addStateForm.controls['user_state'].dirty || addStateForm.controls['user_state'].touched)" class="alert alert-danger">
+            <div *ngIf="addStateForm.controls['user_state'].errors.required">
+               State is required.
+            </div>
+            <div *ngIf="addStateForm.controls['user_state'].errors.minlength">
+                State name minimum 3 character.
+             </div>
+          </div>
+        <input type="text" class="form-control" id="user_state" name="user_state" formControlName="user_state" placeholder="Enter State">
+    </div>
+    <button type="submit" [disabled]="addStateForm.pristine || addStateForm.invalid" class="btn btn-primary">Add State</button>
+</form>
+<div class="clearfix"></div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Row</th>
+            <th>State Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let states of state_list;index as i">
+            <td>{{i+1}}</td>
+            <td>{{states.state_name}}</td>
+            <td><a href="{{states.state_name}}">Delete</a> &nbsp; <a href="{{states.state_name}}">Update</a></td>
+        </tr>
+    </tbody>
+</table>
